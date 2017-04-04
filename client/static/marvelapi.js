@@ -5,18 +5,25 @@ function getHero(event) {
   var req = new XMLHttpRequest()
   var number = event.timestamp
   var website = "http://gateway.marvel.com/v1/public/characters?name="
-  var name = "Iron Man"
+  var name = "Iron-Man"
   var URL = website + name + "ts=" + number + "&apikey=" + publicKey + "&hash=" + privateKey
 
   document.getElementById('vs').addEventListener('click', function (event) {
+    document.getElementById('heroInfo').textContent = ""
+  })
 
+  req.addEventListener('load', function () {
+
+    console.log(req.status)
+    if (req.status >= 200 && req.status < 400) {
+
+      var result = JSON.parse(req.responseText)
+      document.getElementById('heroInfo').textContent = result.name
+      console.log('HERE I AM')
+    }
+    event.preventDefault()
   })
   req.open('GET', URL, true)
-
-  if (req.status >= 200 && req.status < 400) {
-    var result = JSON.parse(req.responseText)
-    document.getElementById('heroInfo').textContent = result.name
-  }
-
-
+  req.setRequestHeader('Content-Type', 'application/json')
+  req.send()
 }
