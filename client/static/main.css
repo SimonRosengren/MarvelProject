@@ -3,3 +3,16 @@ body{
     color: white;
     font-family: 'Lato', sans-serif;
 }
+
+#pic {
+  border-radius: 50%; 
+  margin: 0 auto;
+}
+#pic:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+}
