@@ -25,8 +25,9 @@ function getHero(event) {
     if (req.status >= 200 && req.status < 400) {
 
       var result = JSON.parse(req.responseText)
-      document.getElementById('heroInfo').textContent = result.name
-      console.log(result.name)
+      console.log()
+      document.getElementById('heroInfo').textContent = result.data.results[0].name
+      
     }
     event.preventDefault()
   })
