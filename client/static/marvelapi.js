@@ -27,6 +27,9 @@ function getHero(event) {
       var result = JSON.parse(req.responseText)
       console.log(result.data.results[0])
       document.getElementById('heroInfo').textContent = result.data.results[0].name
+      var img = document.createElement('img')
+      img.src = result.data.results[0].thumbnail.path + '/standard_fantastic.jpg'
+      document.getElementById('pic').appendChild(img)
       
     }
     event.preventDefault()
