@@ -24,15 +24,18 @@ function getHero(event) {
   req.addEventListener('load', function () {
     if (req.status >= 200 && req.status < 400) {
 
+      //Prints out the name in the HTML
       var result = JSON.parse(req.responseText)
       console.log(result.data.results[0])
       document.getElementById('name').textContent = result.data.results[0].name
       
+      //Show the picture in the HTML
       var img = document.createElement('img')
       img.className += "pic"
       img.src = result.data.results[0].thumbnail.path + '/standard_fantastic.jpg'
       document.getElementById('pic').appendChild(img)
 
+      //Prints out the description of the hero in the HTML
       document.getElementById('info').textContent = result.data.results[0].description
       console.log(img)
     }
