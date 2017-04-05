@@ -40,4 +40,9 @@ body{
 th{
      width: 400px;
      align-content: center;
+     margin-bottom: 20px; 
+}
+.infobox{
+  background-color: #301d18;
+  box-shadow: gray;
 }
