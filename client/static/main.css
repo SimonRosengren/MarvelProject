@@ -4,8 +4,23 @@ body{
     font-family: 'Bangers', cursive;
 }
 .VS{
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) infinite;
   font-size: 110px;
-  color: black;
+  color: white;
+}
+@keyframes shake {
+    0% { 
+      font-size: 110px;
+      text-shadow: 1px 1px black;
+     }
+   50% { 
+     font-size: 120px;
+     text-shadow: 3px 3px black;
+      }
+  100% { 
+    font-size: 110px;
+    text-shadow: 1px 1px black;
+     }
 }
 .info{
   font-family: 'Lato', sans-serif;
