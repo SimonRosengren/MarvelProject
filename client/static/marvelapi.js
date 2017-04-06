@@ -16,14 +16,18 @@ function getHero(event) {
   //Construct the URL
   var URL = website + "orderBy=-modified" + "&limit=" + limit + "&ts=" + number + '&apikey=' + publicKey + "&hash=" + hash
 
+  //Actions when you click the pictures
   document.getElementById('pic').addEventListener('click', function (event) {
-
+    //Send who won to the database
     console.log("You choose the first hero")
+    //Add the init here so new heroes reloads
+    location.reload()
   })
-
   document.getElementById('pic2').addEventListener('click', function (event) {
-
+    //Send who won to the database
     console.log("You choose the second hero")
+    //Add the init here so new heroes reloads
+    location.reload()
   })
 
   //Wait for the httpreq to load
