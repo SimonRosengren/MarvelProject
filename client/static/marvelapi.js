@@ -16,6 +16,16 @@ function getHero(event) {
   //Construct the URL
   var URL = website + "orderBy=-modified" + "&limit=" + limit + "&ts=" + number + '&apikey=' + publicKey + "&hash=" + hash
 
+  document.getElementById('pic').addEventListener('click', function (event) {
+
+    console.log("You choose the first hero")
+  })
+
+  document.getElementById('pic2').addEventListener('click', function (event) {
+
+    console.log("You choose the second hero")
+  })
+
   //Wait for the httpreq to load
   req.addEventListener('load', function () {
     if (req.status >= 200 && req.status < 400) {
