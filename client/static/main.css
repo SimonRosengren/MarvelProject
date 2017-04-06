@@ -47,5 +47,6 @@ th{
 }
 .infobox{
   background-color: #301d18;
-  box-shadow: gray;
+  position: relative;
+  border-radius: 20px;
 }
