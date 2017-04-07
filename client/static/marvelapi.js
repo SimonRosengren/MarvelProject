@@ -10,6 +10,13 @@ function addToDatabase(temp) {
     data: { winner: temp }
   })
 }
+function updateList(){
+  $.ajax({
+    type: 'GET', 
+    url: '/'
+  })
+  console.log('UPDATING...')
+}
 
 function getHero(event) {
   var req = new XMLHttpRequest()
@@ -47,6 +54,8 @@ function getHero(event) {
       //getting two random numbers between 0 and 29
       var randomInt = Math.floor(Math.random() * 29)
       var randomInt2 = Math.floor(Math.random() * 29)
+      //Update the top list
+      updateList()
 
       //Prints out the name in the HTML
       var result = JSON.parse(req.responseText)
@@ -74,7 +83,7 @@ function getHero(event) {
       if (result.data.results[randomInt2].description === "") {
         document.getElementById('info2').textContent = "No description, sorry! :("
       }
-      console.log(img)
+      
     }
     event.preventDefault()
   })

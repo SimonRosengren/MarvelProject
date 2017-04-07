@@ -18,7 +18,10 @@ app.post('/vote', function(req, res){
         res.json({ success:true });
         res.end();
     })
+    console.log('TEST')
+    database.updateToplist();
 })
+
 database.connect(function(error){
     if(error){
         console.log(error);
