@@ -2,6 +2,17 @@ var privateKey = "06e0dd2958297c253d44dbc3f233d06528692579"
 var publicKey = "77302619ff526d6a4b112d7f2d57652d"
 
 document.addEventListener("DOMContentLoaded", getHero)
+
+function addToDatabase(temp) {
+  console.log(temp);
+
+  $.ajax({
+    type: 'POST',
+    url: '/temperatures',
+    data: { temprature: temp }
+  })
+}
+
 function getHero(event) {
   var req = new XMLHttpRequest()
   var number = event.timeStamp
