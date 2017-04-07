@@ -28,6 +28,20 @@ function getHero(event) {
   //Construct the URL
   var URL = website + "orderBy=-modified" + "&limit=" + limit + "&ts=" + number + '&apikey=' + publicKey + "&hash=" + hash
 
+  //Actions when you click the pictures
+  document.getElementById('pic').addEventListener('click', function (event) {
+    //Send who won to the database
+    console.log("You choose the first hero")
+    //Add the init here so new heroes reloads
+    location.reload()
+  })
+  document.getElementById('pic2').addEventListener('click', function (event) {
+    //Send who won to the database
+    console.log("You choose the second hero")
+    //Add the init here so new heroes reloads
+    location.reload()
+  })
+
   //Wait for the httpreq to load
   req.addEventListener('load', function () {
     if (req.status >= 200 && req.status < 400) {
@@ -50,7 +64,7 @@ function getHero(event) {
 
       var img2 = document.createElement('img')
       img2.className += "pic"
-      img2.src =  result.data.results[randomInt2].thumbnail.path + '/standard_fantastic.jpg'
+      img2.src = result.data.results[randomInt2].thumbnail.path + '/standard_fantastic.jpg'
       document.getElementById('pic2').appendChild(img2)
 
       //Prints out the description of the hero in the HTML
