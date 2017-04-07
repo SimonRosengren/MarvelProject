@@ -4,7 +4,9 @@
   "description": "Let marvel characters battle each other",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "marvel-api": "^1.1.0",
+    "mongodb": "^2.2.25"
   },
   "devDependencies": {},
   "scripts": {
@@ -20,9 +22,5 @@
   "bugs": {
     "url": "https://github.com/xzorcious/MarvelProject/issues"
   },
-  "homepage": "https://github.com/xzorcious/MarvelProject#readme",
-  "dependencies": {
-    "express": "^4.15.2",
-    "marvel-api": "^1.1.0"
-  }
+  "homepage": "https://github.com/xzorcious/MarvelProject#readme"
 }

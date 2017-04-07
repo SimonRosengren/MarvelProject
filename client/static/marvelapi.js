@@ -1,5 +1,6 @@
 var privateKey = "06e0dd2958297c253d44dbc3f233d06528692579"
 var publicKey = "77302619ff526d6a4b112d7f2d57652d"
+
 document.addEventListener("DOMContentLoaded", getHero)
 function getHero(event) {
   var req = new XMLHttpRequest()
@@ -15,20 +16,6 @@ function getHero(event) {
 
   //Construct the URL
   var URL = website + "orderBy=-modified" + "&limit=" + limit + "&ts=" + number + '&apikey=' + publicKey + "&hash=" + hash
-
-  //Actions when you click the pictures
-  document.getElementById('pic').addEventListener('click', function (event) {
-    //Send who won to the database
-    console.log("You choose the first hero")
-    //Add the init here so new heroes reloads
-    location.reload()
-  })
-  document.getElementById('pic2').addEventListener('click', function (event) {
-    //Send who won to the database
-    console.log("You choose the second hero")
-    //Add the init here so new heroes reloads
-    location.reload()
-  })
 
   //Wait for the httpreq to load
   req.addEventListener('load', function () {
