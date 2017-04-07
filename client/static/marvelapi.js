@@ -4,12 +4,10 @@ var publicKey = "77302619ff526d6a4b112d7f2d57652d"
 document.addEventListener("DOMContentLoaded", getHero)
 
 function addToDatabase(temp) {
-  console.log(temp);
-
   $.ajax({
     type: 'POST',
-    url: '/temperatures',
-    data: { temprature: temp }
+    url: '/vote',
+    data: { winner: temp }
   })
 }
 
@@ -31,13 +29,13 @@ function getHero(event) {
   //Actions when you click the pictures
   document.getElementById('pic').addEventListener('click', function (event) {
     //Send who won to the database
-    console.log("You choose the first hero")
+    addToDatabase(document.getElementById('name').textContent)
     //Add the init here so new heroes reloads
     location.reload()
   })
   document.getElementById('pic2').addEventListener('click', function (event) {
     //Send who won to the database
-    console.log("You choose the second hero")
+    addToDatabase(document.getElementById('name2').textContent)
     //Add the init here so new heroes reloads
     location.reload()
   })

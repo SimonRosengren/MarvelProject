@@ -4,6 +4,7 @@
   "description": "Let marvel characters battle each other",
   "main": "index.js",
   "dependencies": {
+    "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "marvel-api": "^1.1.0",
     "mongodb": "^2.2.25"
