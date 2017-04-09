@@ -1,5 +1,5 @@
-var privateKey = "06e0dd2958297c253d44dbc3f233d06528692579"
-var publicKey = "77302619ff526d6a4b112d7f2d57652d"
+var privateKey = "c49d621e8cb90e99dcc76543a1c6682863ca9ece"
+var publicKey = "4e4c4629dc02b846216360561c9aa443"
 
 document.addEventListener("DOMContentLoaded", getHero)
 
@@ -31,7 +31,7 @@ function getHero(event) {
   var hash = (MD5(number + privateKey + publicKey));
 
   //Construct the URL
-  var URL = website + "orderBy=-modified" + "&limit=" + limit + "&ts=" + number + '&apikey=' + publicKey + "&hash=" + hash
+  var URL = website + "orderBy=-modified" + "&limit=" + limit /*+ "&ts=" + number*/ + '&apikey=' + publicKey /*+ "&hash=" + hash*/
 
   //Actions when you click the pictures
   document.getElementById('pic').addEventListener('click', function (event) {
