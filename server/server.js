@@ -24,8 +24,12 @@ app.post('/vote', function(req, res){
 
 app.get('/toplist', function(req, res){
     //Wait for databse to finish before we send, but how?
-    res.send(database.updateToplist())
-    res.end()
+    database.updateToplist(function(retValue){
+        res.send(retValue)
+        res.end()
+    })
+    
+    
 })
 
 database.connect(function(error){

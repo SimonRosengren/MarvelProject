@@ -18,13 +18,13 @@ const connect = function (callback) {
 const save = function (collection, data, callback) {
     db.collection(collection).save(data, callback)
 }
-const updateToplist = function () {
-    var retValue = 'HELLO WORLD'
+const updateToplist = function (callback) {
+    //var retValue = 'HELLO WORLD'
     //Groups by name and sorts by number of times winning
     db.collection('match').find().toArray(function (err, result) {
         
        retValue = result[5].winner
-       return retValue
+       callback(retValue)
     })
     //HOW DO WE WAIT FOR retValue to finish?
     
