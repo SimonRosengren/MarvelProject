@@ -18,34 +18,34 @@ const connect = function (callback) {
 const save = function (collection, data, callback) {
     db.collection(collection).save(data, callback)
 }
-const updateToplist = function (callback) {
+/*const updateToplist = function (callback) {
     //var retValue = 'HELLO WORLD'
     //Groups by name and sorts by number of times winning
     db.collection('match').find().toArray(function (err, result) {
-        
+       //console.log(result)
        retValue = result[5].winner
        callback(retValue)
     })
     //HOW DO WE WAIT FOR retValue to finish?
     
-}
+}*/
 
-/*const updateToplist = function (callback) {
+const updateToplist = function (callback) {
     //Groups by name and sorts by number of times winning
-    var retValue
+    var retValue = []
     db.collection('match').aggregate([{
         "$group": { _id: "$winner", count: { "$sum": 1 } }
     }, {
         "$sort": { count: -1 }
     }], function (err, docs) {
         var keys = []
-        docs.forEach(function (doc) {
-            
-            retValue = JSON.stringify(doc) // do what you want here.
-            callback(retValue)
-        });
+        var value = 0
+        docs.forEach(function (doc) {        
+            retValue.push(doc._id + " " + doc.count) // do what you want here.                                      
+        }); 
+        callback(retValue)       
     });
-}*/
+}
 
 module.exports.connect = connect;
 module.exports.save = save;
