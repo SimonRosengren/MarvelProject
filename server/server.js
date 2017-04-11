@@ -6,6 +6,8 @@ const bodyParser = require('body-parser');
 const port = process.env.PORT || 4000
 const app = express()
 
+
+
 app.use(express.static(path.join(__dirname, '../client')))
 app.use(bodyParser.urlencoded({extended : true}))
 
@@ -14,17 +16,15 @@ app.post('/vote', function(req, res){
     database.save('match', req.body, function(err, result) {
         if (err) return console.log(err)
 
-        console.log('IT WORKED!');
+
         res.json({ success:true });
         res.end();
     })
 })
 
 app.get('/toplist', function(req, res){
-
-    var toplist = database.updateToplist()
-    console.log('TOPLIST: '+toplist)
-    res.send(toplist)
+    //Wait for databse to finish before we send, but how?
+    res.send(database.updateToplist())
     res.end()
 })
 

@@ -19,19 +19,15 @@ const save = function (collection, data, callback) {
     db.collection(collection).save(data, callback)
 }
 const updateToplist = function () {
+    var retValue = 'HELLO WORLD'
     //Groups by name and sorts by number of times winning
-    db.collection('match').aggregate([{
-        "$group": { _id: "$winner", count: { "$sum": 1 } }
-    }, {
-        "$sort": { count: -1 }
-    }], function (err, docs) {
-        var keys = []
-        docs.forEach(function (doc) {
-            //console.log(JSON.stringify(doc)); // How do I return this? 
-            var a = JSON.stringify(doc)
-            return "HEJ"     
-        });
-    });
+    db.collection('match').find().toArray(function (err, result) {
+        
+       retValue = result[5].winner
+       return retValue
+    })
+    //HOW DO WE WAIT FOR retValue to finish?
+    
 }
 module.exports.connect = connect;
 module.exports.save = save;

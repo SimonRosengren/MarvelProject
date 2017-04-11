@@ -11,12 +11,6 @@ function addToDatabase(temp) {
     data: { winner: temp }
   })
 }
-function updateList(){
-  $.ajax({
-    type: 'GET', 
-    url: '/toplist'
-  })
-}
 
 function getHero(event) {
   var req = new XMLHttpRequest()
