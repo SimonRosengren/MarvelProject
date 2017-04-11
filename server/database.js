@@ -41,7 +41,6 @@ const updateToplist = function (callback) {
         var keys = []
         var value = 0
         docs.forEach(function (doc) {        
-            //retValue.push(doc._id + " " + doc.count)
             retValue.push(doc) // do what you want here.                                      
         }); 
         callback(retValue)       
