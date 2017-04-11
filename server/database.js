@@ -27,7 +27,9 @@ const updateToplist = function () {
     }], function (err, docs) {
         var keys = []
         docs.forEach(function (doc) {
-            console.log(JSON.stringify(doc)); // do what you want here.
+            //console.log(JSON.stringify(doc)); // How do I return this? 
+            var a = JSON.stringify(doc)
+            return "HEJ"     
         });
     });
 }

@@ -1,6 +1,7 @@
 var privateKey = "c49d621e8cb90e99dcc76543a1c6682863ca9ece"
 var publicKey = "4e4c4629dc02b846216360561c9aa443"
 
+
 document.addEventListener("DOMContentLoaded", getHero)
 
 function addToDatabase(temp) {
@@ -13,13 +14,13 @@ function addToDatabase(temp) {
 function updateList(){
   $.ajax({
     type: 'GET', 
-    url: '/'
+    url: '/toplist'
   })
-  console.log('UPDATING...')
 }
 
 function getHero(event) {
   var req = new XMLHttpRequest()
+  var req2 = new XMLHttpRequest()
   var number = event.timeStamp
   var website = 'http://gateway.marvel.com/v1/public/characters?'
   var limit = 30
@@ -49,7 +50,7 @@ function getHero(event) {
       var randomInt = Math.floor(Math.random() * 29)
       var randomInt2 = Math.floor(Math.random() * 29)
       //Update the top list
-      updateList()
+      
 
       //Prints out the name in the HTML
       var result = JSON.parse(req.responseText)
@@ -57,6 +58,7 @@ function getHero(event) {
       document.getElementById('name').textContent = result.data.results[randomInt].name
       document.getElementById('name2').textContent = result.data.results[randomInt2].name
 
+      
       //Show the picture in the HTML
       var img = document.createElement('img')
       img.className += "pic"
@@ -81,7 +83,14 @@ function getHero(event) {
     }
     event.preventDefault()
   })
+  req2.addEventListener('load', function(){
+    document.getElementById('leadingHero').textContent = req2.responseText
+    console.log(req2)
+  })
   req.open('GET', URL, true)
   req.setRequestHeader('Content-Type', 'application/json')
   req.send()
+  req2.open('GET', '/toplist', true)
+  req2.setRequestHeader('Content-Type', 'application/json')
+  req2.send()
 }

@@ -18,8 +18,14 @@ app.post('/vote', function(req, res){
         res.json({ success:true });
         res.end();
     })
-    console.log('TEST')
-    database.updateToplist();
+})
+
+app.get('/toplist', function(req, res){
+
+    var toplist = database.updateToplist()
+    console.log('TOPLIST: '+toplist)
+    res.send(toplist)
+    res.end()
 })
 
 database.connect(function(error){
