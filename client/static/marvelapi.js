@@ -78,7 +78,12 @@ function getHero(event) {
     event.preventDefault()
   })
   req2.addEventListener('load', function(){
-    document.getElementById('leadingHero').textContent = req2.responseText
+    var result = JSON.parse(req2.responseText)
+    //console.log(result[0]._id)
+    for (i = 0; i < 5; i++) { 
+    document.getElementById('leadingHero' + i).textContent = result[i]._id + " " + result[i].count
+    }
+    //document.getElementById('leadingHero').textContent = result[0]._id + " " + result[0].count
     console.log(req2)
   })
   req.open('GET', URL, true)
