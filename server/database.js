@@ -29,6 +29,24 @@ const updateToplist = function (callback) {
     //HOW DO WE WAIT FOR retValue to finish?
     
 }
+
+/*const updateToplist = function (callback) {
+    //Groups by name and sorts by number of times winning
+    var retValue
+    db.collection('match').aggregate([{
+        "$group": { _id: "$winner", count: { "$sum": 1 } }
+    }, {
+        "$sort": { count: -1 }
+    }], function (err, docs) {
+        var keys = []
+        docs.forEach(function (doc) {
+            
+            retValue = JSON.stringify(doc) // do what you want here.
+            callback(retValue)
+        });
+    });
+}*/
+
 module.exports.connect = connect;
 module.exports.save = save;
 module.exports.updateToplist = updateToplist;
