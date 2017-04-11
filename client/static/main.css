@@ -54,3 +54,7 @@ th{
 .toplist{
   width: 400px;
 }
+
+h2{
+  text-shadow: 1px 1px black;
+}
