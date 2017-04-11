@@ -27,9 +27,7 @@ app.get('/toplist', function(req, res){
     database.updateToplist(function(retValue){
         res.send(retValue)
         res.end()
-    })
-    
-    
+    })  
 })
 
 database.connect(function(error){
