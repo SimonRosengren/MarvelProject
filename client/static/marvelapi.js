@@ -85,7 +85,7 @@ function getHero(event) {
   req2.addEventListener('load', function(){
     var result = JSON.parse(req2.responseText)
     for (i = 0; i < 5; i++) { 
-    document.getElementById('leadingHero' + i).textContent = result[i]._id + " " + result[i].count
+    document.getElementById('leadingHero' + i).textContent = result[i]._id + " - " + result[i].count
     }
     console.log(req2)
   })
