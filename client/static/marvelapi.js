@@ -43,6 +43,11 @@ function getHero(event) {
       //getting two random numbers between 0 and 29
       var randomInt = Math.floor(Math.random() * 29)
       var randomInt2 = Math.floor(Math.random() * 29)
+      //So that we don't get the same hero twice
+      while(randomInt === randomInt2)
+      {
+        randomInt2 = Math.floor(Math.random() * 29)
+      }
       //Update the top list
       
 
