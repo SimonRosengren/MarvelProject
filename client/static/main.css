@@ -53,8 +53,10 @@ th{
 }
 .toplist{
   width: 400px;
+  margin: auto;
 }
 
 h2{
   text-shadow: 1px 1px black;
+  text-align: center;
 }
