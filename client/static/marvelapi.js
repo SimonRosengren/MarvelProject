@@ -19,6 +19,7 @@ function getHero(event) {
   var website = 'http://gateway.marvel.com/v1/public/characters?'
   var limit = 30
 
+
   //Construct the URL
   var URL = website + "orderBy=-modified" + "&limit=" + limit /*+ "&ts=" + number*/ + '&apikey=' + publicKey /*+ "&hash=" + hash*/
 
@@ -53,7 +54,7 @@ function getHero(event) {
 
       //Prints out the name in the HTML
       var result = JSON.parse(req.responseText)
-      console.log(result.data.results[randomInt])
+      //console.log(result.data.results[randomInt])
       document.getElementById('name').textContent = result.data.results[randomInt].name
       document.getElementById('name2').textContent = result.data.results[randomInt2].name
 
@@ -87,7 +88,7 @@ function getHero(event) {
     for (i = 0; i < 5; i++) { 
     document.getElementById('leadingHero' + i).textContent = result[i]._id + " - " + result[i].count
     }
-    console.log(req2)
+    //console.log(req2)
   })
   req.open('GET', URL, true)
   req.setRequestHeader('Content-Type', 'application/json')

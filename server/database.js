@@ -33,17 +33,20 @@ const save = function (collection, data, callback) {
 const updateToplist = function (callback) {
     //Groups by name and sorts by number of times winning
     var retValue = []
-    db.collection('match').aggregate([{
-        "$group": { _id: "$winner", count: { "$sum": 1 } }
-    }, {
-        "$sort": { count: -1 }
-    }], function (err, docs) {
-        var keys = []
-        var value = 0
-        docs.forEach(function (doc) {        
-            retValue.push(doc) // do what you want here.                                      
-        }); 
-        callback(retValue)       
+    db.collection('match').aggregate([
+            {
+                "$group": { _id: "$winner", count: { "$sum": 1 } }
+            }, {
+                "$sort": { count: -1 }
+            }
+        ], 
+        function (err, docs) {
+            var keys = []
+            var value = 0
+            docs.forEach(function (doc) {        
+                retValue.push(doc) // do what you want here.                                      
+            }); 
+            callback(retValue)       
     });
 }
 

@@ -12,11 +12,9 @@ app.use(express.static(path.join(__dirname, '../client')))
 app.use(bodyParser.urlencoded({extended : true}))
 
 app.post('/vote', function(req, res){
-    
     database.save('match', req.body, function(err, result) {
         if (err) return console.log(err)
-
-
+        
         res.json({ success:true });
         res.end();
     })
